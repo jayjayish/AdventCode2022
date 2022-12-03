@@ -20,31 +20,12 @@ public class Program
 
             while ((ln = file.ReadLine()) != null)
             {
-
-                Console.WriteLine("Fight " + ln);
                 var pairChar = ln.ToCharArray();
                 int firstVal = pairChar[0] - 'A';
                 int secondVal = pairChar[2] - 'X';
 
-
-                if (secondVal == 0)
-                {
-                    total += 0;
-                    total += (firstVal + 2) % 3 + 1;
-                }
-                else if (secondVal == 1)
-                {
-                    total += 3;
-
-                    total += firstVal + 1;
-                }
-                else if (secondVal == 2)
-                {
-                    total += 6;
-
-                    total += (firstVal + 1) % 3 + 1;
-                }
-
+                total += secondVal * 3;
+                total += (firstVal + secondVal + 2) % 3 + 1;
             }
 
             file.Close();
